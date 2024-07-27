@@ -1,0 +1,25 @@
+name: dns-lexicon
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  master:
+    uses: ./.github/workflows/_sync.yml
+    secrets:
+      fork-name: DanielEgbers/dns-lexicon-cli-builds
+      fork-branch: master
+      upstream-name: AnalogJ/lexicon
+      upstream-branch: master
+      token: ${{ secrets.PAT }}
+
+  cli-builds:
+    uses: ./.github/workflows/_sync.yml
+    secrets:
+      fork-name: DanielEgbers/dns-lexicon-cli-builds
+      fork-branch: cli-builds
+      upstream-name: AnalogJ/lexicon
+      upstream-branch: master
+      token: ${{ secrets.PAT }}
