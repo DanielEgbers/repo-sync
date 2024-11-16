@@ -1,4 +1,4 @@
-name: dns-lexicon
+name: gluetun
 
 on:
   workflow_dispatch:
