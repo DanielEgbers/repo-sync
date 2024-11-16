@@ -1,0 +1,25 @@
+name: dns-lexicon
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  master:
+    uses: ./.github/workflows/_sync.yml
+    secrets:
+      fork-name: DanielEgbers/gluetun
+      fork-branch: master
+      upstream-name: qdm12/gluetun
+      upstream-branch: master
+      token: ${{ secrets.PAT }}
+
+  wiki:
+    uses: ./.github/workflows/_sync.yml
+    secrets:
+      fork-name: DanielEgbers/gluetun-wiki
+      fork-branch: main
+      upstream-name: qdm12/gluetun-wiki
+      upstream-branch: main
+      token: ${{ secrets.PAT }}
