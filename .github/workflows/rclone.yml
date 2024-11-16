@@ -1,0 +1,16 @@
+name: dns-lexicon
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  master:
+    uses: ./.github/workflows/_sync.yml
+    secrets:
+      fork-name: DanielEgbers/rclone
+      fork-branch: master
+      upstream-name: rclone/rclone
+      upstream-branch: master
+      token: ${{ secrets.PAT }}
