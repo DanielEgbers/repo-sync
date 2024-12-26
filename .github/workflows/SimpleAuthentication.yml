@@ -1,0 +1,16 @@
+name: SimpleAuthentication
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  master:
+    uses: ./.github/workflows/_sync.yml
+    secrets:
+      fork-name: DanielEgbers/SimpleAuthentication
+      fork-branch: master
+      upstream-name: marcominerva/SimpleAuthentication
+      upstream-branch: master
+      token: ${{ secrets.PAT }}
