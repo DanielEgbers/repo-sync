@@ -1,0 +1,16 @@
+name: gatus
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  master:
+    uses: ./.github/workflows/_sync.yml
+    secrets:
+      fork-name: DanielEgbers/gatus
+      fork-branch: master
+      upstream-name: TwiN/gatus
+      upstream-branch: master
+      token: ${{ secrets.PAT }}
